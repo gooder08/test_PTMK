@@ -19,11 +19,10 @@ def connection():
     cur = conn.cursor()
     return conn, cur
 
-# Параметры подключения к базе данных
+
 def creadte_table():
     conn, cur = connection()
 
-    # Режим 1: Создание таблицы с полями справочника сотрудников
     cur.execute("""
         CREATE TABLE IF NOT EXISTS employees (
             id SERIAL PRIMARY KEY,
@@ -103,8 +102,8 @@ def select_special_employees():
     
     end_time = time.time()
     execution_time = end_time - start_time
-    # for row in results:
-    #     print(row)
+    for row in results:
+        print(row)
     print(f'Время выполнения: {round(execution_time, 10)} секунд')
 
 def optimize_db():
